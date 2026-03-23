@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.CacheFlow" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <!-- Splash screen theme — delegates to the base theme once ready -->
+    <style name="Theme.CacheFlow.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@android:color/white</item>
+        <item name="postSplashScreenTheme">@style/Theme.CacheFlow</item>
+    </style>
+</resources>

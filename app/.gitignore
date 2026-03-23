@@ -1,0 +1,29 @@
+### Android ###
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/captures
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+
+### Kotlin / Java ###
+*.class
+*.jar
+*.war
+*.ear
+hs_err_pid*
+
+### Gradle ###
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### Secrets — never commit ###
+local.properties
+google-services.json
