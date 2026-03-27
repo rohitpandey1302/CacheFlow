@@ -16,4 +16,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "CacheFlow"
 include(":app")
- 
+include(":domain")
+include(":network")

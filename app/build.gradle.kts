@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -47,13 +48,11 @@ kotlin {
 }
 
 dependencies {
+    // Module dependencies
+    implementation(project(":network"))
+
+    // AndroidX
     implementation(libs.androidx.core.ktx)
-
-
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-
     implementation(libs.androidx.splashscreen)
 
     // Hilt
@@ -63,4 +62,17 @@ dependencies {
     // Timber
     implementation(libs.timber)
 
+    // Kotlinx Serialization JSON
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.retrofit.kotlinx.converter)
+
+    // Retrofit + OkHttp
+    implementation(libs.retrofit)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+
+    // Test dependencies
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }
