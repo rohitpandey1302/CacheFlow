@@ -1,32 +1,80 @@
 [versions]
+
+# ---- Build tooling ----
 agp = "8.4.2"
+kotlin = "2.0.21"
+ksp = "2.0.21-1.0.25"
+jetbrainsKotlinJvm = "2.0.21"
+
+# ---- AndroidX core ----
 coreKtx = "1.13.1"
+splashscreen = "1.0.1"
+
+# ---- Testing ----
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
-kotlin = "1.9.23"
-ksp = "1.9.23-1.0.20"
-splashscreen = "1.0.1"
 
+# ---- DI ----
 hilt = "2.51.1"
+javaxInject = "1"
+
+# ---- Logging ----
 timber = "5.0.1"
 
+# ---- AndroidX Jetpack ----
+paging = "3.3.6"
+
+# ---- Async ----
+coroutines = "1.10.2"
+
+# ---- Network ----
+retrofit = "3.0.0"
+okhttp = "4.12.0"
+
+# ---- Kotlinx Serialization ----
+kotlinxSerialization     = "1.8.1"
+retrofitKotlinxConverter = "1.0.0"
+
 [libraries]
+# ---- AndroidX core ----
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashscreen" }
+
+# ---- Testing ----
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-splashscreen        = { group = "androidx.core",           name = "core-splashscreen",   version.ref = "splashscreen" }
 
-hilt-android                 = { group = "com.google.dagger",       name = "hilt-android",         version.ref = "hilt" }
-hilt-android-compiler        = { group = "com.google.dagger",       name = "hilt-android-compiler", version.ref = "hilt" }
+# ---- DI ----
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+javax-inject = { module = "javax.inject:javax.inject", version.ref = "javaxInject" }
 
-timber                       = { group = "com.jakewharton.timber",  name = "timber",               version.ref = "timber" }
+# ---- Logging ----
+timber = { group = "com.jakewharton.timber",  name = "timber", version.ref = "timber" }
+
+# ---- AndroidX Jetpack ----
+paging-common = { group = "androidx.paging", name = "paging-common", version.ref = "paging" }
+
+# ---- Async ----
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+
+# ---- Network ----
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+
+# ---- Kotlinx Serialization ----
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+retrofit-kotlinx-converter = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitKotlinxConverter" }
 
 [plugins]
-android-application = { id = "com.android.application", version.ref = "agp" }
-android-library      = { id = "com.android.library",                  version.ref = "agp" }
-kotlin-android       = { id = "org.jetbrains.kotlin.android",         version.ref = "kotlin" }
-ksp                  = { id = "com.google.devtools.ksp",              version.ref = "ksp" }
-hilt                 = { id = "com.google.dagger.hilt.android",       version.ref = "hilt" }
+android-application  = { id = "com.android.application", version.ref = "agp" }
+android-library      = { id = "com.android.library", version.ref = "agp" }
+kotlin-android       = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ksp                  = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt                 = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
