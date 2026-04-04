@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
 }
@@ -42,6 +43,11 @@ android {
 
     buildFeatures {
         buildConfig = true
+        compose     = true
+    }
+
+    packaging {
+        resources { excludes += "/META-INF/{AL2.0,LGPL2.1}" }
     }
 }
 
@@ -52,6 +58,7 @@ kotlin {
 dependencies {
     // Module dependencies
     implementation(project(":data"))
+    implementation(project(":domain"))
     implementation(project(":network"))
 
     // AndroidX
@@ -61,9 +68,21 @@ dependencies {
     // Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
+    implementation(libs.hilt.navigation.compose)
 
     // Timber
     implementation(libs.timber)
+
+    // Compose
+    val composeBom = platform(libs.compose.bom)
+    implementation(composeBom)
+    implementation(libs.compose.ui)
+    implementation(libs.compose.material3)
+    implementation(libs.compose.material.icons)
+
+    // Paging
+    implementation(libs.paging.runtime)
+    implementation(libs.paging.compose)
 
     // Test dependencies
     testImplementation(libs.junit)

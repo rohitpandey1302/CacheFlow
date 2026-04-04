@@ -4,7 +4,6 @@
 agp = "8.4.2"
 kotlin = "2.0.21"
 ksp = "2.0.21-1.0.25"
-jetbrainsKotlinJvm = "2.0.21"
 
 # ---- AndroidX core ----
 coreKtx = "1.13.1"
@@ -17,6 +16,7 @@ espressoCore = "3.5.1"
 
 # ---- DI ----
 hilt = "2.51.1"
+hiltExt = "1.2.0"
 javaxInject = "1"
 
 # ---- Logging ----
@@ -39,6 +39,9 @@ retrofitKotlinxConverter = "1.0.0"
 # ---- Storage ----
 room = "2.7.2"
 
+# ---- Compose ----
+composeBom       = "2024.10.00"
+
 [libraries]
 # ---- AndroidX core ----
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -52,6 +55,7 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 # ---- DI ----
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltExt" }
 javax-inject = { module = "javax.inject:javax.inject", version.ref = "javaxInject" }
 
 # ---- Logging ----
@@ -59,6 +63,8 @@ timber = { group = "com.jakewharton.timber",  name = "timber", version.ref = "ti
 
 # ---- AndroidX Jetpack ----
 paging-common = { group = "androidx.paging", name = "paging-common", version.ref = "paging" }
+paging-runtime = { group = "androidx.paging", name = "paging-runtime", version.ref = "paging" }
+paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "paging" }
 
 # ---- Async ----
 coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
@@ -72,10 +78,17 @@ okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor",
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
 retrofit-kotlinx-converter = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitKotlinxConverter" }
 
+# ---- Room ----
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-paging = { group = "androidx.room", name = "room-paging", version.ref = "room" }
+
+# ---- Compose BOM ----
+compose-bom                  = { group = "androidx.compose",            name = "compose-bom",               version.ref = "composeBom" }
+compose-ui                   = { group = "androidx.compose.ui",         name = "ui" }
+compose-material3            = { group = "androidx.compose.material3",  name = "material3" }
+compose-material-icons       = { group = "androidx.compose.material",   name = "material-icons-extended" }
 
 [plugins]
 android-application  = { id = "com.android.application", version.ref = "agp" }
@@ -83,6 +96,7 @@ android-library      = { id = "com.android.library", version.ref = "agp" }
 kotlin-android       = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp                  = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt                 = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+compose-compiler       = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
