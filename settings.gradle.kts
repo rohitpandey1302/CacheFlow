@@ -18,3 +18,4 @@ rootProject.name = "CacheFlow"
 include(":app")
 include(":domain")
 include(":network")
+include(":data")

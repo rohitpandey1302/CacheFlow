@@ -1,4 +1,4 @@
-package com.rohitpandey.cache_flow.di
+package com.rohitpandey.data.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.rohitpandey.network.api.PostApiService
@@ -10,6 +10,7 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -49,10 +50,10 @@ class NetworkModule {
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
         json: Json,
-        baseUrl: String,
-    ): retrofit2.Retrofit {
+        @BaseUrl baseUrl: String,
+    ): Retrofit {
         val contentType = "application/json".toMediaType()
-        return retrofit2.Retrofit.Builder()
+        return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(okHttpClient)
             .addConverterFactory(json.asConverterFactory(contentType))
@@ -61,6 +62,6 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun providePostApiService(retrofit: retrofit2.Retrofit): PostApiService =
+    fun providePostApiService(retrofit: Retrofit): PostApiService =
         retrofit.create(PostApiService::class.java)
 }

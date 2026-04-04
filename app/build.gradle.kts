@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
-    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -24,13 +23,16 @@ android {
         debug {
             isDebuggable          = true
             applicationIdSuffix   = ".debug"
+            buildConfigField("String", "BASE_URL", "\"https://jsonplaceholder.typicode.com/\"")
         }
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "BASE_URL", "\"https://jsonplaceholder.typicode.com/\"")
         }
     }
     compileOptions {
@@ -49,6 +51,7 @@ kotlin {
 
 dependencies {
     // Module dependencies
+    implementation(project(":data"))
     implementation(project(":network"))
 
     // AndroidX
@@ -61,15 +64,6 @@ dependencies {
 
     // Timber
     implementation(libs.timber)
-
-    // Kotlinx Serialization JSON
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.retrofit.kotlinx.converter)
-
-    // Retrofit + OkHttp
-    implementation(libs.retrofit)
-    implementation(libs.okhttp)
-    implementation(libs.okhttp.logging)
 
     // Test dependencies
     testImplementation(libs.junit)
