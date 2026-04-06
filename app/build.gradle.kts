@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
 }
@@ -79,10 +80,17 @@ dependencies {
     implementation(libs.compose.ui)
     implementation(libs.compose.material3)
     implementation(libs.compose.material.icons)
+    implementation(libs.activity.compose)
 
     // Paging
     implementation(libs.paging.runtime)
     implementation(libs.paging.compose)
+
+    // Kotlinx Serialization JSON
+    implementation(libs.kotlinx.serialization.json)
+
+    // Navigation
+    implementation(libs.navigation.compose)
 
     // Test dependencies
     testImplementation(libs.junit)

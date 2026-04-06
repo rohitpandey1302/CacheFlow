@@ -8,22 +8,22 @@ fun PostDto.toEntity(
     isFavorite: Boolean = false,
     isSynced: Boolean = true,
 ): PostEntity = PostEntity(
-    id          = id,
-    userId      = userId,
-    title       = title,
-    body        = body,
-    isFavourite  = isFavorite,
-    isSynced    = isSynced,
+    id = id,
+    userId = userId,
+    title = title,
+    body = body,
+    isFavourite = isFavorite,
+    isSynced = isSynced,
     lastUpdated = System.currentTimeMillis(),
 )
 
 fun PostEntity.toDomain(): Post = Post(
-    id         = id,
-    userId     = userId,
-    title      = title,
-    body       = body,
+    id = id,
+    userId = userId,
+    title = title,
+    body = body,
     isFavourite = isFavourite,
-    isSynced   = isSynced,
+    isSynced = isSynced,
 )
 
 fun List<PostEntity>.toDomain(): List<Post> = map { it.toDomain() }

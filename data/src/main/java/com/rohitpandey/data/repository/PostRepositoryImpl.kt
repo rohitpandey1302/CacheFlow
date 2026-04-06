@@ -25,18 +25,18 @@ class PostRepositoryImpl @Inject constructor(
     private val postApiService: PostApiService,
 ): PostRepository {
 
-    private val postDao      = appDatabase.postDao()
+    private val postDao = appDatabase.postDao()
     private val remoteKeyDao = appDatabase.remoteKeyDao()
 
     @OptIn(ExperimentalPagingApi::class)
     override fun getPagedPosts(): Flow<PagingData<Post>> {
         return Pager(
             config = PagingConfig(
-                pageSize         = DataConstants.PAGING_PAGE_SIZE,
-                prefetchDistance = DataConstants.PAGING_PREFETCH,
-                enablePlaceholders = false,
-            ),
-            remoteMediator  = PostRemoteMediator(appDatabase, postApiService),
+            pageSize = DataConstants.PAGING_PAGE_SIZE,
+            prefetchDistance = DataConstants.PAGING_PREFETCH,
+            enablePlaceholders = false,
+        ),
+            remoteMediator = PostRemoteMediator(appDatabase, postApiService),
             pagingSourceFactory = { postDao.getPagedPosts() },
         ).flow.map { pagingData ->
             pagingData.map { entity -> entity.toDomain() }
@@ -84,8 +84,8 @@ class PostRepositoryImpl @Inject constructor(
 
     private suspend fun fetchAndCachePost(id: Int): Result<Post> =
         runCatchingResult {
-            val dto    = postApiService.getPostById(id)
-            val isFav  = postDao.getPostById(id)?.isFavourite ?: false
+            val dto = postApiService.getPostById(id)
+            val isFav = postDao.getPostById(id)?.isFavourite ?: false
             val entity = dto.toEntity(isFavorite = isFav)
             postDao.upsertPost(entity)
             entity.toDomain()

@@ -21,7 +21,7 @@ class PostRemoteMediator(
     private val postApiService: PostApiService,
 ): RemoteMediator<Int, PostEntity>() {
 
-    private val postDao      = appDatabase.postDao()
+    private val postDao = appDatabase.postDao()
     private val remoteKeyDao = appDatabase.remoteKeyDao()
 
     override suspend fun initialize(): InitializeAction {
