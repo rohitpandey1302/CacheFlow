@@ -24,7 +24,7 @@ internal fun LoadingIndicator(
 ) {
     Box(
         contentAlignment = Alignment.Center,
-        modifier         = modifier,
+        modifier = modifier,
     ) {
         CircularProgressIndicator(strokeWidth = strokeWidth)
     }
@@ -39,12 +39,12 @@ internal fun ErrorScreen(
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-        modifier            = modifier.padding(24.dp)
+        modifier = modifier.padding(24.dp)
     ) {
         Text(
-            text      = message,
-            style     = MaterialTheme.typography.bodyLarge,
-            color     = MaterialTheme.colorScheme.error,
+            text = message,
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.error,
             textAlign = TextAlign.Center
         )
         if (onRetry != null) {
@@ -63,12 +63,12 @@ internal fun EmptyScreen(
 ) {
     Box(
         contentAlignment = Alignment.Center,
-        modifier         = modifier.padding(24.dp)
+        modifier = modifier.padding(24.dp)
     ) {
         Text(
-            text      = message,
-            style     = MaterialTheme.typography.bodyLarge,
-            color     = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
+            text = message,
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
             textAlign = TextAlign.Center
         )
     }

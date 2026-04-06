@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
 
 class CommentRepositoryImpl @Inject constructor(
-    private val appDatabase: AppDatabase,
+    appDatabase: AppDatabase,
     private val postApiService: PostApiService,
 ): CommentRepository {
 

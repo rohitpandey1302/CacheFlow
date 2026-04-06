@@ -8,6 +8,7 @@ ksp = "2.0.21-1.0.25"
 # ---- AndroidX core ----
 coreKtx = "1.13.1"
 splashscreen = "1.0.1"
+navigation = "2.8.9"
 
 # ---- Testing ----
 junit = "4.13.2"
@@ -24,6 +25,7 @@ timber = "5.0.1"
 
 # ---- AndroidX Jetpack ----
 paging = "3.3.6"
+activityCompose  = "1.9.0"
 
 # ---- Async ----
 coroutines = "1.10.2"
@@ -40,7 +42,7 @@ retrofitKotlinxConverter = "1.0.0"
 room = "2.7.2"
 
 # ---- Compose ----
-composeBom       = "2024.10.00"
+composeBom = "2024.10.00"
 
 [libraries]
 # ---- AndroidX core ----
@@ -59,7 +61,7 @@ hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-com
 javax-inject = { module = "javax.inject:javax.inject", version.ref = "javaxInject" }
 
 # ---- Logging ----
-timber = { group = "com.jakewharton.timber",  name = "timber", version.ref = "timber" }
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 
 # ---- AndroidX Jetpack ----
 paging-common = { group = "androidx.paging", name = "paging-common", version.ref = "paging" }
@@ -85,10 +87,14 @@ room-compiler = { group = "androidx.room", name = "room-compiler", version.ref =
 room-paging = { group = "androidx.room", name = "room-paging", version.ref = "room" }
 
 # ---- Compose BOM ----
-compose-bom                  = { group = "androidx.compose",            name = "compose-bom",               version.ref = "composeBom" }
-compose-ui                   = { group = "androidx.compose.ui",         name = "ui" }
-compose-material3            = { group = "androidx.compose.material3",  name = "material3" }
-compose-material-icons       = { group = "androidx.compose.material",   name = "material-icons-extended" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+compose-material-icons = { group = "androidx.compose.material", name = "material-icons-extended" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+
+# ---- Navigation ----
+navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 
 [plugins]
 android-application  = { id = "com.android.application", version.ref = "agp" }
@@ -96,7 +102,7 @@ android-library      = { id = "com.android.library", version.ref = "agp" }
 kotlin-android       = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp                  = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt                 = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-jvm           = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-compose-compiler       = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+compose-compiler     = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
