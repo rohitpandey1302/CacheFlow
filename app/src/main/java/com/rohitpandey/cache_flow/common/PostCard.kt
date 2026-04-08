@@ -5,7 +5,6 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -70,7 +69,7 @@ fun PostCard(
     )
 
     val favTint by animateColorAsState(
-        targetValue = if (post.isFavourite) Color(0xFFE8365D) else MaterialTheme.colorScheme.outline,
+        targetValue = if (post.isFavourite) FavouritePink else MaterialTheme.colorScheme.outline,
         animationSpec = spring(stiffness = Spring.StiffnessMedium),
         label = "fav_tint",
     )

@@ -65,15 +65,13 @@ internal fun HomeScreen(
                     )
                 }
 
-                else -> {
-                    ContentList(
-                        posts = posts,
-                        listState = listState,
-                        onFavoritesClick = onFavoritesClick,
-                        onPostClick = onPostClick,
-                        onToggleFav = viewModel::toggleFavorite,
-                    )
-                }
+                else -> ContentList(
+                    posts = posts,
+                    listState = listState,
+                    onFavoritesClick = onFavoritesClick,
+                    onPostClick = onPostClick,
+                    onToggleFav = viewModel::toggleFavorite,
+                )
             }
         }
     }
